@@ -57,17 +57,20 @@ header {
 
 .header-top {
     display: flex;
-    justify-content: center;       /* Başlığı yatayda ortala */
+    justify-content: center;
+    /* Başlığı yatayda ortala */
     align-items: center;
     width: 100%;
-    position: relative;            /* Ayarlar butonunun sağa yaslanabilmesi için */
+    position: relative;
+    /* Ayarlar butonunun sağa yaslanabilmesi için */
 }
 
 h1 {
     font-size: 24px;
     font-weight: 600;
     letter-spacing: -0.5px;
-    text-align: center;            /* Başlık metnini ortala */
+    text-align: center;
+    /* Başlık metnini ortala */
 }
 
 .icon-btn {
@@ -79,8 +82,10 @@ h1 {
     cursor: pointer;
     font-size: 14px;
     transition: all 0.2s ease;
-    position: absolute;            /* Sağa mutlak konumlandırma */
-    right: 0;                      /* En sağa sabitle */
+    position: absolute;
+    /* Sağa mutlak konumlandırma */
+    right: 0;
+    /* En sağa sabitle */
 }
 
 .icon-btn:hover {
@@ -242,7 +247,8 @@ h1 {
 
 /* --- EYLEM BUTONU --- */
 .action-section {
-    display: none; /* Firebase entegrasyonuna kadar geçici olarak gizlendi */
+    display: none;
+    /* Firebase entegrasyonuna kadar geçici olarak gizlendi */
     justify-content: center;
     margin-top: 10px;
 }
@@ -411,7 +417,8 @@ h1 {
 
 /* --- TABAK YIĞINLARI TASARIMI --- */
 .plates-wrapper {
-    display: none; /* Firebase entegrasyonuna kadar geçici olarak gizlendi */
+    display: none;
+    /* Firebase entegrasyonuna kadar geçici olarak gizlendi */
     justify-content: center;
     gap: 80px;
     /* İki yığın arasındaki boşluk */
