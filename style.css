@@ -28,13 +28,18 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+html, body {
+    height: 100vh;
+    overflow: hidden;            /* Sayfanın yukarı aşağı esnemesini kilitler */
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100%;
     padding: 20px;
 }
 
@@ -153,8 +158,12 @@ h1 {
 /* --- CALENDAR: Takvim Alanı (Mobil Uyumlu) --- */
 .calendar-wrapper {
     overflow-x: auto;
+    overflow-y: hidden;           /* Dikeyde gereksiz oynamayı/kaymayı tamamen engeller */
+    padding: 10px 0;              /* Bugünün kartının scale(1.03) ve gölgesinin üstten/alttan kırpılmaması için */
     scrollbar-width: none;
     /* Firefox için */
+    overscroll-behavior-x: contain; /* Sağa/sola kaydırırken sayfa arkasının sallanmasını engeller */
+    -webkit-overflow-scrolling: touch; /* iOS cihazlarda kaydırmayı pürüzsüzleştirir */
 }
 
 .calendar-wrapper::-webkit-scrollbar {
