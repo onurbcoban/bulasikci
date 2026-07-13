@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bulaşıkçı</title>
+
+    <!-- PWA & iOS Ayarları -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Bulaşık">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <!-- CSS Bağlantısı -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts (Modern Tipografi için Outfit fontu) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- HEADER: Başlık ve Bugünün Bilgisi -->
+        <header>
+            <div class="header-top">
+                <h1>Bugün bulaşıklar kimde?</h1>
+                <!-- Ayarlar butonu geçici olarak pasif hale getirildi -->
+                <!-- <button id="settings-toggle-btn" class="icon-btn" aria-label="Ayarlar">⚙️</button> -->
+            </div>
+
+            <!-- BÜYÜK ODAK: Bugünün Takvim Yaprağı -->
+            <div class="today-leaf-container">
+                <div class="today-leaf">
+                    <span class="leaf-day-name" id="leaf-day-name">Pazartesi</span>
+                    <span class="leaf-day-num" id="leaf-day-num">13</span>
+                    <span class="leaf-month" id="leaf-month">Temmuz 2026</span>
+                    <div class="leaf-assignee" id="leaf-assignee">--</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CALENDAR: Takvim Alanı -->
+        <main>
+            <!--<span class="week-title" id="week-range-text">Haftalık Plan</span>-->
+
+
+            <!-- Takvim Izgarası (Grid) 
+                 JavaScript buraya 9 adet kart ekleyecek:
+                 - 1 adet Yarı Opak Önceki Pazar
+                 - 7 adet Ana Gün (Pzt - Paz)
+                 - 1 adet Yarı Opak Sonraki Pazartesi
+            -->
+            <div class="calendar-wrapper">
+                <div id="calendar-grid" class="calendar-grid">
+                    <!-- Kartlar JS ile yüklenecek -->
+                </div>
+            </div>
+
+            <!-- TABAK YIĞINLARI (PLATES STACK) -->
+            <div class="plates-wrapper">
+                <!-- 1. Kişi Tabak Yığını -->
+                <div class="plate-stack" id="stack-user-a">
+                    <div class="plate-lines-container">
+                        <div class="plate-line"></div>
+                        <div class="plate-line"></div>
+                        <div class="plate-line"></div>
+                        <div class="plate-line"></div>
+                        <div class="plate-line"></div>
+                        <div class="plate-line"></div>
+                    </div>
+                    <div class="plate-user-name" id="stack-name-a">Onur</div>
+                </div>
+
+                <!-- 2. Kişi Tabak Yığını -->
+                <div class="plate-stack" id="stack-user-b">
+                    <div class="plate-lines-container">
+                        <div class="plate-line"></div>
+                        <div class="plate-line"></div>
+                        <div class="plate-line"></div>
+                        <div class="plate-line"></div>
+                        <div class="plate-line"></div>
+                        <div class="plate-line"></div>
+                    </div>
+                    <div class="plate-user-name" id="stack-name-b">Betül</div>
+                </div>
+            </div>
+
+
+            <!-- EYLEM ALANI: Bulaşık Kontrol Butonu -->
+            <div class="action-section">
+                <button id="done-btn" class="done-btn">
+                    <span class="btn-icon"></span>
+                    <span class="btn-text">Vardiyamı tamamladım!</span>
+                </button>
+            </div>
+        </main>
+
+
+        <!-- Ayarlar Penceresi geçici olarak pasif hale getirildi -->
+        <!--
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <h2>⚙️ Ayarlar</h2>
+
+                <div class="form-group">
+                    <label for="name1-input">1. Ev Arkadaşı (Varsayılan: Onur)</label>
+                    <input type="text" id="name1-input" placeholder="İsim 1">
+                </div>
+
+                <div class="form-group">
+                    <label for="name2-input">2. Ev Arkadaşı (Varsayılan: Betül)</label>
+                    <input type="text" id="name2-input" placeholder="İsim 2">
+                </div>
+
+                <div class="form-group">
+                    <label for="ref-date-input">Referans Pazartesi Günü</label>
+                    <input type="date" id="ref-date-input" value="2026-07-13">
+                    <small>Bu tarihte 1. Ev Arkadaşı sırayı başlatır.</small>
+                </div>
+
+                <div class="modal-actions">
+                    <button id="save-settings-btn" class="primary-btn">Kaydet</button>
+                    <button id="close-modal-btn" class="secondary-btn">Kapat</button>
+                </div>
+            </div>
+        </div>
+        -->
+    </div>
+
+    <!-- JS Bağlantısı (Sayfa yüklendikten sonra çalışması için defer) -->
+    <script src="app.js" defer></script>
+</body>
+
+</html>
