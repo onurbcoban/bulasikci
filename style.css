@@ -1,21 +1,12 @@
-/* --- GENEL SIFIRLAMA & DEĞİŞKENLER --- */
 :root {
     --bg-color: #0d0e12;
-    /* Derin siyah arka plan */
     --card-bg: #16171d;
-    /* Koyu gri kart arka planı */
     --text-primary: #f3f4f6;
-    /* Beyaza yakın ana metin */
     --text-secondary: #9ca3af;
-    /* Gri tonlu yardımcı metin */
     --border-color: #272935;
-    /* İnce sınır çizgileri */
 
-    /* İki kişi için sade, pastel ve minimal renk tonları */
     --color-a: #5c7cfa;
-    /* OB için asil mavi */
     --color-b: #0ca678;
-    /* BÇ için soft yeşil */
 
     --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -30,7 +21,7 @@
 
 html, body {
     height: 100vh;
-    overflow: hidden;            /* Sayfanın yukarı aşağı esnemesini kilitler */
+    overflow: hidden;
 }
 
 body {
@@ -51,7 +42,7 @@ body {
     gap: 32px;
 }
 
-/* --- HEADER: Başlık Alanı --- */
+/* --- HEADER --- */
 header {
     display: flex;
     flex-direction: column;
@@ -63,11 +54,9 @@ header {
 .header-top {
     display: flex;
     justify-content: center;
-    /* Başlığı yatayda ortala */
     align-items: center;
     width: 100%;
     position: relative;
-    /* Ayarlar butonunun sağa yaslanabilmesi için */
 }
 
 h1 {
@@ -75,7 +64,6 @@ h1 {
     font-weight: 600;
     letter-spacing: -0.5px;
     text-align: center;
-    /* Başlık metnini ortala */
 }
 
 .icon-btn {
@@ -88,9 +76,7 @@ h1 {
     font-size: 14px;
     transition: all 0.2s ease;
     position: absolute;
-    /* Sağa mutlak konumlandırma */
     right: 0;
-    /* En sağa sabitle */
 }
 
 .icon-btn:hover {
@@ -126,7 +112,7 @@ h1 {
     border-radius: 6px;
 }
 
-/* --- NAVİGASYON: Hafta Kontrolleri --- */
+/* --- NAVİGASYON --- */
 .navigation-controls {
     display: flex;
     justify-content: space-between;
@@ -155,32 +141,27 @@ h1 {
     color: var(--text-secondary);
 }
 
-/* --- CALENDAR: Takvim Alanı (Mobil Uyumlu) --- */
+/* --- CALENDAR --- */
 .calendar-wrapper {
     overflow-x: auto;
-    overflow-y: hidden;           /* Dikeyde gereksiz oynamayı/kaymayı tamamen engeller */
-    padding: 10px 0;              /* Bugünün kartının scale(1.03) ve gölgesinin üstten/alttan kırpılmaması için */
+    overflow-y: hidden;
+    padding: 10px 0;
     scrollbar-width: none;
-    /* Firefox için */
-    overscroll-behavior-x: contain; /* Sağa/sola kaydırırken sayfa arkasının sallanmasını engeller */
-    -webkit-overflow-scrolling: touch; /* iOS cihazlarda kaydırmayı pürüzsüzleştirir */
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
 }
 
 .calendar-wrapper::-webkit-scrollbar {
     display: none;
-    /* Chrome/Safari için barı gizle */
 }
 
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
-    /* Önceki Pazar + 7 Gün + Sonraki Pazartesi */
     gap: 10px;
     min-width: 750px;
-    /* Mobil dikey ekranda taşma yapıp kaydırılabilmesi için */
 }
 
-/* Kart Temel Yapısı */
 .day-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -195,7 +176,6 @@ h1 {
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Üst ve alt yazılar için küçük etiketler */
 .day-label {
     font-size: 11px;
     text-transform: uppercase;
@@ -208,7 +188,6 @@ h1 {
     font-weight: 800;
 }
 
-/* Nöbetçi İsmi */
 .day-assignee {
     font-size: 13px;
     font-weight: 600;
@@ -217,20 +196,17 @@ h1 {
     width: 100%;
 }
 
-/* Yarı Opak Kartlar (Geçmiş Pazar ve Gelecek Pazartesi) */
 .day-card.preview {
     opacity: 0.35;
     border-style: dashed;
 }
 
-/* Bugünün Kartı */
 .day-card.today {
     border-color: var(--text-primary);
     transform: scale(1.03);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
-/* Yıkanmış/Tamamlanmış Durumu */
 .day-card.completed::after {
     content: '';
     position: absolute;
@@ -239,11 +215,9 @@ h1 {
     width: 6px;
     height: 6px;
     background-color: #40c057;
-    /* Minimal yeşil nokta */
     border-radius: 50%;
 }
 
-/* --- KİŞİ BAZLI RENKLER --- */
 .user-a {
     color: var(--color-a);
     background-color: rgba(92, 124, 250, 0.1);
@@ -257,7 +231,6 @@ h1 {
 /* --- EYLEM BUTONU --- */
 .action-section {
     display: none;
-    /* Firebase entegrasyonuna kadar geçici olarak gizlendi */
     justify-content: center;
     margin-top: 10px;
 }
@@ -267,18 +240,13 @@ h1 {
     color: var(--bg-color);
     border: none;
     padding: 10px 20px;
-    /* Doygunluk azaltıldı, buton daraltıldı */
     border-radius: 8px;
-    /* Daha köşeli, minimal görünüm */
     font-size: 13px;
-    /* Yazı boyutu küçültüldü */
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
     width: auto;
-    /* Tam genişlik yerine kendi içeriği kadar yer kaplasın */
     min-width: 180px;
-    /* Çok daralmaması için sınır */
 }
 
 .done-btn:active {
@@ -331,7 +299,7 @@ h1 {
     font-weight: 600;
 }
 
-/* --- MODAL (AYARLAR) --- */
+/* --- MODAL --- */
 .modal {
     display: none;
     position: fixed;
@@ -419,20 +387,16 @@ h1 {
     flex: 1;
 }
 
-/* Modalı aktif eden yardımcı sınıf */
 .modal.open {
     display: flex;
 }
 
-/* --- TABAK YIĞINLARI TASARIMI --- */
+/* --- TABAK YIĞINLARI --- */
 .plates-wrapper {
     display: none;
-    /* Firebase entegrasyonuna kadar geçici olarak gizlendi */
     justify-content: center;
     gap: 80px;
-    /* İki yığın arasındaki boşluk */
     margin: 40px 0;
-    /* Üst ve alt elemanlarla mesafe */
 }
 
 .plate-stack {
@@ -445,35 +409,25 @@ h1 {
 .plate-lines-container {
     display: flex;
     flex-direction: column-reverse;
-    /* Tabakların en alttan başlayarak yukarı doğru birikmesi için */
     gap: 6px;
-    /* Tabaklar arası boşluk */
     padding: 10px;
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.01);
-    /* Çok hafif arka plan */
 }
 
-/* Pasif Tabak Çizgisi */
 .plate-line {
     width: 50px;
-    /* Tabağın genişliği */
     height: 4px;
-    /* Tabağın kalınlığı */
     background-color: rgba(255, 255, 255, 0.08);
-    /* Kirli/Boş tabağı andıran mat gri */
     border-radius: 2px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /* Yaylanan akıcı geçiş efekti */
 }
 
-/* 1. Kişi Aktif (Temiz) Tabak Rengi (Mavi) */
 #stack-user-a .plate-line.active {
     background-color: var(--color-a);
     box-shadow: 0 0 10px rgba(92, 124, 250, 0.4);
 }
 
-/* 2. Kişi Aktif (Temiz) Tabak Rengi (Yeşil) */
 #stack-user-b .plate-line.active {
     background-color: var(--color-b);
     box-shadow: 0 0 10px rgba(12, 166, 120, 0.4);
@@ -501,21 +455,17 @@ h1 {
     padding: 20px;
     width: 150px;
     height: 180px;
-    /* Yükseklik 200px'ten 180px'e düşürülerek sıkıştırıldı */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* Elemanlar merkezde toplandı */
     gap: 8px;
-    /* Elemanlar arasındaki dikey mesafe daraltıldı */
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .leaf-day-name {
     font-size: 11px;
-    /* Gün ismi hafif küçültüldü */
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--text-secondary);
@@ -524,17 +474,14 @@ h1 {
 
 .leaf-day-num {
     font-size: 36px;
-    /* Tarih numarası 56px'ten 44px'e küçültüldü */
     font-weight: 800;
     line-height: 1;
     color: var(--text-primary);
     margin: 0;
-    /* Ekstra dış boşluk sıfırlandı, gap kullanılacak */
 }
 
 .leaf-month {
     font-size: 12px;
-    /* Ay bilgisi hafif küçültüldü */
     color: var(--text-secondary);
     font-weight: 500;
     margin: 0;
@@ -542,16 +489,11 @@ h1 {
 
 .leaf-assignee {
     font-size: 22px;
-    /* Dengeli boyut */
     font-weight: 700;
     padding: 6px 24px;
-    /* Yatay boşluk 14px'ten 24px'e çıkarılarak kutu yanlara doğru genişletildi */
     border-radius: 12px;
     width: fit-content;
     min-width: 120px;
-    /* Minimum genişlik verilerek kısa isimlerde bile kutunun dolgun durması sağlandı */
     text-align: center;
-    /* Geniş kutunun içinde ismin ortalanması için */
     margin-top: 4px;
-    /* Hafif boşluk */
 }

@@ -7,7 +7,6 @@ const ASSETS = [
     "./manifest.json"
 ];
 
-// Dosyaları telefona yükleme ve kaydetme (Cache)
 self.addEventListener("install", (e) => {
     e.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
@@ -16,7 +15,6 @@ self.addEventListener("install", (e) => {
     );
 });
 
-// Çevrimdışı (Offline) çalışma desteği
 self.addEventListener("fetch", (e) => {
     e.respondWith(
         caches.match(e.request).then((cachedResponse) => {
